@@ -5,10 +5,6 @@ Works in Linux/Windows.
 
 
 ```python```
+`python bruteforce.py --fr RARFILE.rar -c abcdefghijklmnopqrstuvwxyz0123456789 --min 3 --max 6`
 
-`python bruteforce.py --fr filetocrack.rar -c charset -n sizeofpassword`
-
-`python bruteforce.py --fr RARFILE.rar -c abcdefghijklmnopqrst0123 -n 6`
-
-`python bruteforce.py --fz ZIPFILE.zip -c charset -n sizeofpassword`
 
