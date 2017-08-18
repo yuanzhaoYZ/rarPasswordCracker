@@ -26,8 +26,8 @@ def main():
     parser.add_option('--fr', dest='rname', type='string', help='specify rar file')
     parser.add_option('--fz', dest='zname', type='string', help='specify zip file')
     parser.add_option('-c', dest='charset', type='string', help='specify charset')
-    parser.add_option('--min', dest='min', type='string', help='min size of password')
-    parser.add_option('--max', dest='size', type='string', help='size of password')
+    parser.add_option('--min', dest='min', type='int', help='min size of password')
+    parser.add_option('--max', dest='size', type='int', help='size of password')
     (options, args) = parser.parse_args()
     if (options.rname == None and options.zname == None) or (options.charset == None) or (options.size == None):
         print parser.usage
