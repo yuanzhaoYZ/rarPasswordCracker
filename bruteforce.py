@@ -7,7 +7,7 @@ import itertools
 rarfile.UNRAR_TOOL="unrar"
 
 
-def bruteforce(charset, maxlength):
+def bruteforce(charset,minLength,maxlength):
     return (''.join(candidate)
         for candidate in itertools.chain.from_iterable(itertools.product(charset, repeat=i)
         for i in range(1, maxlength + 1)))
@@ -26,7 +26,8 @@ def main():
     parser.add_option('--fr', dest='rname', type='string', help='specify rar file')
     parser.add_option('--fz', dest='zname', type='string', help='specify zip file')
     parser.add_option('-c', dest='charset', type='string', help='specify charset')
-    parser.add_option('-n', dest='size', type='string', help='size of password')
+    parser.add_option('--min', dest='min-size', type='string', help='min size of password')
+    parser.add_option('--max', dest='size', type='string', help='size of password')
     (options, args) = parser.parse_args()
     if (options.rname == None and options.zname == None) or (options.charset == None) or (options.size == None):
         print parser.usage
@@ -40,9 +41,10 @@ def main():
             arFile = zipfile.ZipFile(arname)
         charset = options.charset
         size = options.size
+        min_size = options.min-size
 
     size = int(size)
-    for attempt in bruteforce(charset, size):
+    for attempt in bruteforce(charset,min_size, size):
     # match it against your password, or whatever
         extractFile(arFile,attempt)
 
