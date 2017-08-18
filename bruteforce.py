@@ -41,7 +41,7 @@ def main():
             arFile = zipfile.ZipFile(arname)
         charset = options.charset
         size = options.size
-        min_size = options.min-size
+        min_size = options.min
 
     size = int(size)
     for attempt in bruteforce(charset,min_size, size):
